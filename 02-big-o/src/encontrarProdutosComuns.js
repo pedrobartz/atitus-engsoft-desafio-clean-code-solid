@@ -1,16 +1,11 @@
 /**
- * ❌ OTIMIZAÇÃO O(n²) para O(n)
+ * Retorna os itens de listaA que também existem em listaB.
+ * Complexidade: O(n + m) — um Set de listaB dá busca O(1) por item.
  */
 function encontrarProdutosComuns(listaA, listaB) {
-  const comuns = [];
-  for (let i = 0; i < listaA.length; i++) {
-    for (let j = 0; j < listaB.length; j++) {
-      if (listaA[i] === listaB[j]) {
-        comuns.push(listaA[i]);
-      }
-    }
-  }
-  return comuns;
+  const produtosDeB = new Set(listaB);
+
+  return listaA.filter((produto) => produtosDeB.has(produto));
 }
 
 module.exports = encontrarProdutosComuns;
